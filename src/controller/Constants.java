@@ -2,7 +2,7 @@ package controller;
 
 public class Constants
 {
-	public static int SERVERSOCKET_PORT = 9999;
+	public static int SERVER_PORT = 9999;
 	
 	
 	

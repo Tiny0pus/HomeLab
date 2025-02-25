@@ -4,27 +4,29 @@ import view.*;
 public class Controller
 {
 	// Zero param constructor for Controller
+	private Server server;
 	public Controller()
 	{
-		//init the serverSocket, creates a communication socket on specified port.
-		Server serverSocket = new Server(Constants.SERVERSOCKET_PORT);
+		//init the serverSocket, creates a ServerSocket, doesnt start it.
+		server = new Server(Constants.SERVER_PORT);
+		
+		//connect to a database of some sort
+		
+		//init other things (services,
 	}
 	
-	//Start the server
-	//This method should do many things such as
-	//Initiate a connection to a database
-	//Prepare itself to connect to clients
-	//Connect to peripheral devices
 	
 	public void start()
 	{
 		
-		//Start outward server connection
 		
 		
 		
+		//makes the server begin listening on the specifed port
+		server.start();
 		
 		
+				
 		
 		
 		

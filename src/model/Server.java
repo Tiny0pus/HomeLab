@@ -11,22 +11,31 @@ public class Server
  private ServerSocket server = null;
  private DataInputStream clientInput = null;
 
+
  // constructor with port
  public Server(int port)
  {
-	 // starts server and waits for a connection
-     try {
-         server = new ServerSocket(port);
+	 	try
+	 	{
+	         server = new ServerSocket(port);
+	 	}
+	    catch (IOException i)
+	    {
+
+	        System.out.println(i);
+	    }
          
          //implement some sort of logging method here
          //log that we created the socketserver
-         
-
-         activeSocket = server.accept();
-         //log that the server is accepting clients
-         
-
-         
+ }
+ 
+ 
+ public void start()
+ {
+	 try
+	 {
+		 server.accept();
+		 
          // takes input from the client socket
          clientInput = new DataInputStream(
              new BufferedInputStream(
