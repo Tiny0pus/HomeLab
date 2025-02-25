@@ -7,9 +7,9 @@ public class Server
 {
 
  // initialize socket and input stream
- private Socket socket = null;
+ private Socket activeSocket = null;
  private ServerSocket server = null;
- private DataInputStream in = null;
+ private DataInputStream clientInput = null;
 
  // constructor with port
  public Server(int port)
@@ -18,17 +18,20 @@ public class Server
      try {
          server = new ServerSocket(port);
          
-         //implement some
+         //implement some sort of logging method here
+         //log that we created the socketserver
+         
 
-         socket = server.accept();
+         activeSocket = server.accept();
+         //log that the server is accepting clients
+         
 
-         System.out.println("Client accepted");
-
+         
          // takes input from the client socket
-         in = new DataInputStream(
+         clientInput = new DataInputStream(
              new BufferedInputStream(
-                 socket.getInputStream()));
-
+                 activeSocket.getInputStream()));
+/*
          String line = "";
 
          // reads message from client until "End" is sent
@@ -53,17 +56,17 @@ public class Server
          socket.close();
 
          in.close();
+         
+         
+            */  
      }
 
-     catch (IOException i) {
+     catch (IOException i)
+     {
 
          System.out.println(i);
+      
      }
- }
-
- public static void main(String[] args)
- {
-
-     serverSide server = new serverSide(5000);
- }
 }
+}
+
